@@ -8,7 +8,7 @@ $dotenv->load();
 Database::init();
 $pdo = Database::get();
 
-foreach (glob(__DIR__ . '/../../migrations/*.php') as $path) {
+foreach (glob(__DIR__ . '/../../app/migrations/*.php') as $path) {
     require_once $path;
 
     $className = basename($path, '.php'); 

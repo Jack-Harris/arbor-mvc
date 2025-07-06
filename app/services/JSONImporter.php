@@ -10,7 +10,20 @@ class JSONImporter {
         $this->dataToImport = json_decode($json, true);
     }
 
+    /**
+     * Assume that if there is already a message in the database, then the importer
+     * has already ran and should not attempt to again.
+     */
+    public function hasDataBeenImported(): bool {
+        return count((new Message())->executeRaw('SELECT message_id FROM message;'));
+    }
+
     public function import(): void {
+
+        if ($this->hasDataBeenImported()) {
+            echo 'Skipping import as the data has already been imported...' . PHP_EOL;
+            return;
+        }
 
         // Mock up a MAT to which all schools will belong.
         $multiAcademyTrust = (new MultiAcademyTrust())->findByAttributes(['multi_academy_trust_id' => 1], 1);

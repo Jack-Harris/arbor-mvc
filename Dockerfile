@@ -22,3 +22,9 @@ RUN echo '<Directory "/var/www/html/public">\n\
     Require all granted\n\
 </Directory>' > /etc/apache2/conf-available/allow-htaccess.conf \
   && a2enconf allow-htaccess
+
+RUN apt-get update && apt-get install -y netcat-openbsd
+
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]

@@ -15,8 +15,9 @@ services:
       - db_data:/var/lib/mysql
 
   php:
-    build: ./php
+    build: .
     container_name: php_app
+    command: apache2-foreground
     depends_on:
       - db
     ports:
