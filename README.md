@@ -1,5 +1,5 @@
 
-# Overview of solution
+# Overview of Solution
 
 I decided to create a minimal MVC framework from scratch for this project.
 
@@ -7,11 +7,11 @@ I decided to create a minimal MVC framework from scratch for this project.
 
 You will need to have docker and docker compose.
 
-@todo
+- Run `docker compose up --build`. This should install all dependencies, run the migration to create the database schema and import the data.
+- The application will run at `localhost:8080`.
 
 # Entity Relationship Diagram
 ![arbor-erd drawio](https://github.com/user-attachments/assets/b75a3e59-7363-4803-b578-31557aad78d9)
-
 
 # Where I focused most of my effort
 
@@ -21,13 +21,13 @@ If you'd like to see examples of other projects that I've done which demonstrate
 
 # Notes
 
-- In normal circumstances, I would never commit the .env file. However in this case, there is no actual sensitive information and in order to simplify sharing the project.
+- In normal circumstances, I would never commit the .env file. However in this case, there is no actual sensitive information and so I have done so in order to simplify sharing the project.
 - If I had more time, I would have written tests for this project but I deemed this to be out of scope due to the time limitations, even though in hindsight, I should have prioritised this more.
 
 
 # Assumptions
 
-- Every school has a webhook, and only one webhook - therefore the webhook URL is a valid identifier.
+- Every school has a webhook, and only one webhook - therefore the webhook URL is a valid unique identifier of a school.
 - A student will only have one guardian.
 - Every student only belongs to one school.
-- Read rate refers to the ratio between delivered to total sent messages.
+- Read rate refers to the ratio between delivered to total sent messages excluding messages which failed to send.
