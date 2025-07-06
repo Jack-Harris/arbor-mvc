@@ -10,6 +10,7 @@ I decided to create a minimal custom MVC framework from scratch for this project
 `public` contains the PHP entrypoint.
 
 The logic to import the data is at `app/services/JSONImporter.php`.
+
 The database schema definition is in the migration in `app/migrations/`.
 
 # How to run
