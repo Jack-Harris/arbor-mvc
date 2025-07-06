@@ -64,7 +64,7 @@
             <h4>Messages by Day</h4>
         </div>
     </div>
-    <div class="row">
+    <div class="row mb-5">
         <div class="col">
             <canvas
                 id="lineMessageTimeline"
@@ -112,13 +112,14 @@
             }]
             },
             options: {
-            responsive: true,
-            plugins: {
-                title: {
-                    display: true,
-                    text: title
+                responsive: true,
+                radius: '70%',
+                plugins: {
+                    title: {
+                        display: true,
+                        text: title
+                    }
                 }
-            }
             }
         });
     }

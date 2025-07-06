@@ -1,7 +1,14 @@
 
 # Overview of Solution
 
-I decided to create a minimal MVC framework from scratch for this project.
+I decided to create a minimal custom MVC framework from scratch for this project.
+
+`app` contains the models, views, controllers, migrations and services.
+`framework-core` contains the custom framework logic. Mostly the base classes, e.g. Model, Controller.
+`public` contains the PHP entrypoint.
+
+The logic to import the data is at `app/services/JSONImporter.php`.
+The database schema definition is in the migration in `app/migrations/`.
 
 # How to run
 
@@ -11,6 +18,7 @@ You will need to have docker and docker compose.
 - The application will run at `localhost:8080`.
 
 # Entity Relationship Diagram
+
 ![arbor-erd drawio](https://github.com/user-attachments/assets/b75a3e59-7363-4803-b578-31557aad78d9)
 
 # Where I focused most of my effort
@@ -23,7 +31,6 @@ If you'd like to see examples of other projects that I've done which demonstrate
 
 - In normal circumstances, I would never commit the .env file. However in this case, there is no actual sensitive information and so I have done so in order to simplify sharing the project.
 - If I had more time, I would have written tests for this project but I deemed this to be out of scope due to the time limitations, even though in hindsight, I should have prioritised this more.
-
 
 # Assumptions
 
