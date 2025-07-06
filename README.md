@@ -4,7 +4,9 @@
 I decided to create a minimal custom MVC framework from scratch for this project.
 
 `app` contains the models, views, controllers, migrations and services.
+
 `framework-core` contains the custom framework logic. Mostly the base classes, e.g. Model, Controller.
+
 `public` contains the PHP entrypoint.
 
 The logic to import the data is at `app/services/JSONImporter.php`.
