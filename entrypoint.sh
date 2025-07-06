@@ -10,6 +10,9 @@ done
 
 echo 'MySQL ready...'
 
+cd /var/www/html
+composer install
+
 echo 'Running migrations...'
 php ./framework-core/commands/migrate.php
 echo "Migrations finished."
