@@ -22,7 +22,8 @@ You will need to have docker and docker compose.
 
 # Entity Relationship Diagram
 
-![arbor-erd drawio](https://github.com/user-attachments/assets/b75a3e59-7363-4803-b578-31557aad78d9)
+![arbor-erd drawio (1)](https://github.com/user-attachments/assets/6df658f2-c8cb-4289-956d-418ffb84e350)
+
 
 # Where I focused most of my effort
 
