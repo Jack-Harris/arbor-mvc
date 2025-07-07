@@ -35,6 +35,8 @@ If you'd like to see examples of other projects that I've done which demonstrate
 
 - In normal circumstances, I would never commit the .env file. However in this case, there is no actual sensitive information and so I have done so in order to simplify sharing the project.
 - If I had more time, I would have written tests for this project but I deemed this to be out of scope due to the time limitations, even though in hindsight, I should have prioritised this more.
+- I normally commit more with more descriptive commit messages but for the sake of time this wasn't possible.
+- I've left open issues with things I'd like to change about the code.
 
 # Assumptions
 
