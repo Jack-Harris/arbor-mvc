@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Take the URL and extract and render the requested action.
+ */
 class Router {
 
     public function dispatch() {
@@ -7,6 +10,9 @@ class Router {
         $this->renderAction($parser);
     }
 
+    /**
+     * Find the required action based on the parsed URL.
+     */
     private function renderAction(URLParser $parser) {
         if (file_exists("../app/controllers/$parser->controllerName.php")) {
             require_once "../app/controllers/$parser->controllerName.php";

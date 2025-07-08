@@ -11,8 +11,10 @@ abstract class Migration {
         $this->pdo = $pdo;
     }
 
-    protected function execute(string $sql): void
-    {
+    /**
+     * Execute raw SQL
+     */
+    protected function execute(string $sql): void {
         $this->pdo->exec($sql);
     }
 

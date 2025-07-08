@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Extract the desired controller and action from the URL.
+ * 
+ * The expected format is example.com/controller/action
+ */
 class URLParser {
 
     private const DEFAULT_CONTROLLER = 'DefaultController';

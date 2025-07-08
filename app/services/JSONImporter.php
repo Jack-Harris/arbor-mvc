@@ -18,6 +18,12 @@ class JSONImporter {
         return count((new Message())->executeRaw('SELECT message_id FROM message;'));
     }
 
+    /**
+     * Import the data in $dataToImport.
+     * 
+     * With each entity, try to first find an existing entity with the given unique identifier,
+     * and only if one does not exist, create it.
+     */
     public function import(): void {
 
         if ($this->hasDataBeenImported()) {

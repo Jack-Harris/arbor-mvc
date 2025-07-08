@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Database singleton to ensure that we only initialise a PDO object once
+ * for performance reasons.
+ */
 class Database {
     private static ?PDO $pdo = null;
 

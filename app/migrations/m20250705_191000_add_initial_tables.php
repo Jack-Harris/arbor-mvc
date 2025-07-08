@@ -1,6 +1,8 @@
 <?php
 
-
+/**
+ * Create all of the required tables.
+ */
 class M20250705_191000_add_initial_tables extends Migration {
 
     public function up() {
@@ -33,7 +35,6 @@ class M20250705_191000_add_initial_tables extends Migration {
             '`surname` VARCHAR(512)',
         ], 'FOREIGN KEY (`school_id`) REFERENCES `school`(`school_id`) ON DELETE SET NULL ON UPDATE CASCADE');
 
-
         $this->createTable("guardian", [
             '`guardian_id` INT AUTO_INCREMENT PRIMARY KEY',
             '`forename` VARCHAR(512)',
@@ -51,7 +52,7 @@ class M20250705_191000_add_initial_tables extends Migration {
          '
             FOREIGN KEY (`guardian_id`) REFERENCES `guardian`(`guardian_id`) ON DELETE SET NULL ON UPDATE CASCADE,
             FOREIGN KEY (`school_id`) REFERENCES `school`(`school_id`) ON DELETE SET NULL ON UPDATE CASCADE
-         ');
+        ');
 
         $this->createTable(
             'message',

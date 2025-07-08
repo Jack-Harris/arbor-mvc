@@ -14,24 +14,36 @@ class Model {
      * Eg. ExampleModelName -> example_model_name.
      */
     public function tableName() {
-        //@todo remove the regex.
-        return strtolower(preg_replace('/(?<!^)[A-Z]/', '_$0', get_class($this))); 
+        return strtolower(preg_replace('/(?<!^)[A-Z]/', '_$0', get_class($this)));
+        // return StringUtils::camelToSnakeCase(get_class($this)); 
     }
 
+    /**
+     * Get the primary key for this model. It is assumed to be the name of the model in snake 
+     * case with _id appended to the end. For example teacher_id.
+     */
     public function primaryKey(): string
     {
-        //@todo extract out the camel to snake case function.
         $className = (new \ReflectionClass($this))->getShortName();
+
         $classNameSnakeCase = strtolower(preg_replace('/(?<!^)[A-Z]/', '_$0', $className));
+        // $classNameSnakeCase = StringUtils::camelToSnakeCase($className);
         return $classNameSnakeCase . '_id';
     }
 
+    /**
+     * Return all of the model attributes.
+     * @return array
+     */
     public function getAttributes() {
         $attributes = get_object_vars($this);
         unset($attributes['pdo']);
         return $attributes;
     }
 
+    /**
+     * Execute raw prepared SQL statement.
+     */
     public function executeRaw(string $sql, array $params = []): array {
         $statement = $this->pdo->prepare($sql);
         $statement->execute($params);
@@ -39,7 +51,11 @@ class Model {
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    //@todo split into findByAttributes and findAllByAttributes
+    /**
+     * Find a list of models which meet the criteria given in $attributes.
+     * 
+     * @todo split into findByAttributes and findAllByAttributes
+     */
     public function findByAttributes(array $attributes, ?int $limit = null): mixed {
         $where = [];
         $params = [];
@@ -84,6 +100,10 @@ class Model {
         }
     }
 
+    /**
+     * Insert a new row with the attributes stored in this object. Automatically 
+     * retrieve any AUTO_INCREMENT IDs.
+     */
     public function save() {
         $columns = array_keys($this->getAttributes());
         $queryPlaceholders = array_map(fn($column) => ":$column", $columns);
